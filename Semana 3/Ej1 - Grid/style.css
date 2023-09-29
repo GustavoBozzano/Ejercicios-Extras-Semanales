@@ -21,7 +21,10 @@ main {
   background-color: #e6e6e6;
 
   /* Introduce aquí tu código */
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 20px;
 }
 
 article {
@@ -32,7 +35,6 @@ article {
   background-color: #fff8f0;
   height: 100%;
   padding: 10px;
-
 }
 
 article img {
@@ -44,8 +46,7 @@ article img {
   border-radius: 16px 16px 0 0;
 }
 
-
-article h2{
+article h2 {
   margin: 10px 0;
   font-size: 24px;
   color: #333;
