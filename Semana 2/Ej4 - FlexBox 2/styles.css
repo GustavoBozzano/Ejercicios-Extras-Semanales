@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Escribe aquí las reglas*/
+menu {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+li {
+  width: 100%;
+  border: solid lightblue;
+  list-style: none;
+}
+a:hover {
+  width: 100%;
+  background-color: yellow;
+}
+a {
+  text-decoration: none;
+  width: 100%;
+  display: inline-block;
+}
