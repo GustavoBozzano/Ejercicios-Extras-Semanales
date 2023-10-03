@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+article {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  border: 5px solid black;
+  box-shadow: 10px 10px 5px gray;
+}
+section article:first-child {
+  background-color: red;
+}
+section article:nth-child(2) {
+  background-color: yellow;
+  margin: 200px 200px;
+}
+section article:last-child {
+  background-color: blue;
+  margin-left: 400px;
+}
