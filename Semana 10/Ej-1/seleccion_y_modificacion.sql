@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS bootcamp;
+CREATE DATABASE IF NOT EXISTS bootcamp-MySQL;
 
-USE bootcamp;
+USE bootcamp-MySQL;
 
 DROP TABLE IF EXISTS addresses, students;
 
