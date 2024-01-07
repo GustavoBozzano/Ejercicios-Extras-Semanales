@@ -7,11 +7,7 @@ const Header = () => {
   const { theme } = useTheme();
 
   return (
-    <header
-      style={{
-        backgroundColor: theme === "dark" && "#333",
-      }}
-    >
+    <header>
       <Title />
       <ThemeSwitcher />
     </header>
