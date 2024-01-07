@@ -5,7 +5,6 @@ import "../App.css";
 const Content = () => {
   const { theme } = useTheme();
 
-  // Usa una clase condicional según el tema
   const contentClassName = theme === "dark" ? "dark" : "";
 
   return (
