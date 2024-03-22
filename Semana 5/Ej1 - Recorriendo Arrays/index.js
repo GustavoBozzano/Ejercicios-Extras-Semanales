@@ -41,13 +41,14 @@ const people = [
 
 // Escribe aquí tu código
 
-function arrayPeople(name, age) {
-  for (const key in people) {
-    if (people[key].age > 18) {
-      console.log(`${people[key].name} es mayor de edad`);
-    } else {
-      console.log(`${people[key].name} es menor de edad`);
-    }
+function printPerson(name, age) {
+  if (age >= 18) {
+    console.log(`${name} es mayor de edad`);
+  } else {
+    console.log(`${name} es menor de edad`);
   }
 }
-arrayPeople(people);
+
+for (const person of people) {
+  printPerson(person.name, person.age);
+}
