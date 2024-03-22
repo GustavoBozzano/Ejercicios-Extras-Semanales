@@ -17,6 +17,8 @@ const myPromise = myFuncion();
 
 // Escribe aquí tu código
 
-myPromise.then((resolve) => console.log(resolve));
-myPromise.catch((reject) => console.error(reject));
-myPromise.finally(() => console.log("¡Prueba completada!"));
+myPromise
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error))
+  .finally(() => console.log("¡Prueba completada!"));
+
