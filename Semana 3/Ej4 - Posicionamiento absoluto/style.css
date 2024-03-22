@@ -16,9 +16,12 @@ section article:first-child {
 }
 section article:nth-child(2) {
   background-color: yellow;
-  margin: 200px 200px;
+  position: absolute;
+  left: 200px;
+  top: 200px;
 }
 section article:last-child {
   background-color: blue;
-  margin-left: 400px;
+  position: absolute;
+  left: 400px;
 }
