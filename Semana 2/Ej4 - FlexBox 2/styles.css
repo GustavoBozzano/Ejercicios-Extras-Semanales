@@ -9,21 +9,21 @@ body {
 }
 
 /* Escribe aquí las reglas*/
-menu {
+nav menu {
   display: flex;
   justify-content: space-around;
   text-align: center;
 }
-li {
-  width: 100%;
+nav menu li {
+  flex-grow: 1;
   border: solid lightblue;
   list-style: none;
 }
-a:hover {
+nav menu a:hover {
   width: 100%;
   background-color: yellow;
 }
-a {
+nav menu a {
   text-decoration: none;
   width: 100%;
   display: inline-block;
