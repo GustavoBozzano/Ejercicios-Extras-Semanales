@@ -6,7 +6,7 @@ USE campeonato_futsal;
 DROP TABLE IF EXISTS categoria;
 CREATE TABLE categoria (
 id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-categoria VARCHAR(100) NOT NULL
+categoria ENUM("Sub-18", "Senior") NOT NULL
 );
 
 ######################################################################################
@@ -18,6 +18,7 @@ patrocinador VARCHAR(100) DEFAULT NULL,
 color_1er_camiseta VARCHAR(100) NOT	NULL,
 color_2da_camiseta VARCHAR(100) NOT	NULL,
 id_categoria INT NOT NULL,
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
 );
 
@@ -27,10 +28,11 @@ CREATE TABLE participantes (
 id_participantes INT PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(100) NOT NULL,
 apellidos VARCHAR(100) NOT NULL,
-edad INT UNSIGNED NOT NULL,
+birthDate DATETIME NOT NULL,
 direccion VARCHAR(100) DEFAULT NULL,
 telefono VARCHAR(100) DEFAULT NULL,
-id_equipo INT,
+id_equipo INT NOT NULL,
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo)
 );
 
@@ -46,12 +48,13 @@ apellidos VARCHAR(100) NOT NULL
 DROP TABLE IF EXISTS partido;
 CREATE TABLE partido (
 id_partido INT PRIMARY KEY AUTO_INCREMENT,
-resultado VARCHAR(100) DEFAULT NULL,
+resultado VARCHAR(100) DEFAULT "0-0",
 equipo_1 INT DEFAULT NULL,
 equipo_2 INT DEFAULT NULL,
 campo VARCHAR(100) NOT NULL,
 id_arbitro INT NOT NULL,
 incidencias VARCHAR(100) DEFAULT NULL,
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (id_arbitro) REFERENCES arbitro(id_arbitro),
 FOREIGN KEY (equipo_1) REFERENCES equipo(id_equipo),
 FOREIGN KEY (equipo_2) REFERENCES equipo(id_equipo)
@@ -66,10 +69,10 @@ INSERT INTO equipo VALUES
 (DEFAULT,"JUCAR",NULL,"BLANCO","VERDE",1);
 
 INSERT INTO participantes VALUES
-(DEFAULT,"Antony","Porter",9,NULL,NULL,1),
-(DEFAULT,"Agus","Tino",9,NULL,NULL,1),
-(DEFAULT,"Tito","Esper",10,NULL,NULL,2),
-(DEFAULT,"Ricky","Fort",8,NULL,NULL,2);
+(DEFAULT,"Antony","Porter","2009-10-10",NULL,NULL,1),
+(DEFAULT,"Agus","Tino","2009-03-15",NULL,NULL,1),
+(DEFAULT,"Tito","Esper","2008-09-14",NULL,NULL,2),
+(DEFAULT,"Ricky","Fort","2009-01-30",NULL,NULL,2);
 
 INSERT INTO arbitro VALUES
 (DEFAULT,"Jose","Perez");
