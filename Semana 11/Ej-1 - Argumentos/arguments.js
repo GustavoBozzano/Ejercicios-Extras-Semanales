@@ -1,21 +1,32 @@
 import chalk from "chalk";
 
-const argu1 = process.argv[2];
-const argu2 = process.argv[3];
-const fecha = new Date();
-const h_Now = fecha.getHours();
-const m_Now = fecha.getMinutes();
-const s_Now = fecha.getSeconds();
+try {
+  // Obtengo los argumentos a partir de la posición 2 del array de argumentos.
+  const argsArr = process.argv.slice(2);
 
-if (argu1 === "--dirname" && argu2 === "--time") {
-  // Ruta absoluta del directorio que contiene el archivo en ejecución.
-  console.log(chalk.blue(process.argv[1]));
-  // Hora actual del sistema.
-  console.log(chalk.blue(`${h_Now}:${m_Now}:${s_Now}`));
-} else if (argu1 === "--dirname") {
-  console.log(chalk.blue(process.argv[1]));
-} else if (argu1 === "--time") {
-  console.log(chalk.blue(`${h_Now}:${m_Now}:${s_Now}`));
-} else {
-  console.error(chalk.red(`El argumento ${argu1} no es válido`));
+  // Array con los argumentos válidos.
+  const validArgs = ["--dirname", "--time"];
+
+  // Lanzo un error si hay argumentos no válidos.
+  for (const arg of argsArr) {
+    if (!validArgs.includes(arg)) {
+      throw new Error(`El argumento "${arg}" no es válido`);
+    }
+  }
+
+  // Si existe el argumento "--dirname" muestro por consola la ruta absoluta al directorio actual.
+  if (argsArr.includes("--dirname")) {
+    const dirname = process.cwd();
+
+    console.log(chalk.blue(`Directorio: ${dirname}`));
+  }
+
+  // Si existe el argumento "--time" muestro la hora actual en el formato `hh:mm:ss`.
+  if (argsArr.includes("--time")) {
+    const time = new Date().toLocaleTimeString("es-ES");
+
+    console.log(chalk.blue(`Hora: ${time}`));
+  }
+} catch (err) {
+  console.error(chalk.red(err.message));
 }
