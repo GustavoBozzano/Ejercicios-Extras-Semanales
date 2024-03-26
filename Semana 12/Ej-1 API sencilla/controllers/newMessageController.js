@@ -24,7 +24,7 @@ const newMessageController = async (req, res) => {
     };
     messages.push(newMessage);
 
-    await fs.writeFile(messagesPath, JSON.stringify(messages));
+    await fs.writeFile(messagesPath, JSON.stringify(messages, null, 4));
     res.json(newMessage);
   } catch (error) {
     console.error(error);
