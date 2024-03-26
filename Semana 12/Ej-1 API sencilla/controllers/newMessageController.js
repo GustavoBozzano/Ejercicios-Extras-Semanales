@@ -1,6 +1,11 @@
 import fs from "fs/promises";
-import randomUUID from "crypto";
+import crypto from "crypto";
+import path from "path";
+
 import notTextMessageController from "../middleware/notTextMessageController.js";
+
+// Ruta absoluta al fichero donde se almacenan los mensajes.
+const messagesPath = path.join(process.cwd(), "data", "messages.json");
 
 const newMessageController = async (req, res) => {
   try {
@@ -9,7 +14,7 @@ const newMessageController = async (req, res) => {
     if (!text.length) {
       notTextMessageController();
     }
-    const messageData = await fs.readFile("./data/messages.json", "utf8");
+    const messageData = await fs.readFile(messagesPath);
     messages = JSON.parse(messageData);
     let uuid = crypto.randomUUID();
 
@@ -19,7 +24,7 @@ const newMessageController = async (req, res) => {
     };
     messages.push(newMessage);
 
-    await fs.writeFile("./data/messages.json", JSON.stringify(messages));
+    await fs.writeFile(messagesPath, JSON.stringify(messages));
     res.json(newMessage);
   } catch (error) {
     console.error(error);
