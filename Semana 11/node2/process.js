@@ -1,10 +1,11 @@
-const minimist = require("minimist");
-const chalk = require("chalk");
-const path = require("path");
-const fs = require("fs/promises");
-const sharp = require("sharp");
+import minimist from "minimist";
+import chalk from "chalk";
+import { resolve, extname } from "path";
+import { readdir } from "fs/promises";
+import sharp from "sharp";
+import path from "path";
 
-const { pathExists, createPathIfNotExists } = require("./helpers");
+import { pathExists, createPathIfNotExists } from "./helpers.js";
 
 console.log(chalk.green(`Welcome to Image Process v1.0`));
 console.log();
@@ -12,6 +13,8 @@ console.log();
 //Esta función hace el trabajo de procesado
 async function processImages({ inputDir, outputDir, watermark, resize }) {
   try {
+    const __dirname = path.resolve(".");
+
     const inputPath = path.resolve(__dirname, inputDir);
     const outputPath = path.resolve(__dirname, outputDir);
     let watermarkPath;
@@ -32,13 +35,13 @@ async function processImages({ inputDir, outputDir, watermark, resize }) {
     }
 
     //Leer los archivos de inputPath
-    const inputFiles = await fs.readdir(inputPath);
+    const inputFiles = await readdir(inputPath);
 
     //Quedarme solo con los archivos que sean imágenes
     const imageFiles = inputFiles.filter((file) => {
       const validExtensions = [".jpg", ".jpeg", ".gif", ".png", ".webp"];
 
-      return validExtensions.includes(path.extname(file).toLowerCase());
+      return validExtensions.includes(extname(file).toLowerCase());
     });
 
     //Recorrer toda la lista de archivos y:
@@ -65,22 +68,21 @@ async function processImages({ inputDir, outputDir, watermark, resize }) {
         image.composite([
           {
             input: watermarkPath,
-            top: 20,
-            left: 20,
+            top: 5,
+            left: 5,
           },
         ]);
       }
 
       //Guardamos la imagen con otro nombre en outputPath
       await image.toFile(path.resolve(outputPath, `processed_${imageFile}`));
-
-      console.log();
-      console.log(
-        chalk.green(
-          `Todo finalizado, tus imágenes están en el directorio ${outputDir}`
-        )
-      );
     }
+    console.log();
+    console.log(
+      chalk.green(
+        `Todo finalizado, tus imágenes están en el directorio ${outputDir}`
+      )
+    );
   } catch (error) {
     console.error(chalk.red(error.message));
     console.error(chalk.red("Comprueba que los argumentos sean correctos!"));
