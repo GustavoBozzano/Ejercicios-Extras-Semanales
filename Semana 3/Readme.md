@@ -28,3 +28,17 @@ Para pantallas mayores o iguales a 600px:
 
 ## 3 - Animación
 Crear una animación que muestre un estado de `"cargando..."`para el documento HTML. Usar la regla @keyframes de CSS para crear una animación que cause que el elemento se expanda y se contraiga.
+
+## 4 - Posicionamiento absoluto
+crear una página web (index.html) compuesta de 3 `article` sin contenido dentro de un section.
+
+También crear el archivo CSS (styles.css) para estilizar el documento.
+
+Los 3 article tienen atributos comunes:
+
+- Ancho y alto de 200px
+- Un borde de 5px solid black
+- Una sombra de 10px 10px 5px gray
+
+Cada article debe tener un color diferente. El segundo article debe posicionarse 200px más abajo que el primero, y el tercer article debe estar alineado horizontalmente con el primero, tal como se muestra en la imagen de ejemplo:
+![image](https://github.com/GustavoBozzano/Ejercicios-Extras-Semanales/assets/144045426/4995e0eb-df4f-44bd-8b31-0820480562c0)
