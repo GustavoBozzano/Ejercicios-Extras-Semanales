@@ -9,7 +9,7 @@ El mejor equipo es Toros Negros con un total de 28 puntos
 El peor equipo es Ciervos Celestes con un total de 10 puntos
 ```
 
-## 2 - Mejores y peores equipos
+## 2 - DNI
 En el archivo index.js hay una función que recibe un DNI y lo valida.
 
 El Documento Nacional de Identidad de España (DNI) es el documento de identidad que se expide en España, cada DNI tiene un identificador único compuesto por un número de 8 cifras y una letra, por ejemplo: 99999999-R
@@ -24,4 +24,32 @@ Hay que centralizar el sistema de errores (un único console.error). Si alguna d
 
 Usar throw, el objeto Error de JavaScript y try/catch
 
-## 3 - Mejores y peores equipos
+## 3 - Temporizadores
+Crear un programa que incremente cada segundo un contador (incremento de 1) y que imprima en la consola cada 5 segundos el valor del contador.
+
+Ejemplo de lo que debería imprimir en la consola:
+```
+Valor del contador: 5
+Valor del contador: 10
+...
+```
+Luego, crear una función que se encargue de parar el temporizador anterior después de un tiempo arbitrario. Esta función recibirá un parámetro que corresponderá al tiempo en segundos. Cuando pare el temporizador, debe mostrar un mensaje en la consola indicando que se paró.
+
+## 4 - Promesas
+En el archivo `index.js` hay una función que crea y devuelve una promesa.
+
+Gestiona la promesa con then/catch/finallypara hacer:
+- un console.log en el caso de que la promesa se resuelva correctamente
+- un console.error en caso de que la promesa no se resuelva correctamente
+- siempre un console.log con el mensaje "¡Prueba completada!"
+
+Ejemplo de lo que debería imprimir en la consola (promesa resuelta correctamente):
+```
+Todo bien: 6
+¡Prueba completada!
+```
+Ejemplo de lo que debería imprimir en la consola (promesa no resuelta correctamente):
+```
+Tenemos un problema: 1
+¡Prueba completada!
+```
