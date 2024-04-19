@@ -14,7 +14,7 @@ const User = ({ user }) => {
         isMinor={user.dob.age < 18}
       />
       <UserLocation
-        location={`País: ${user.location.country} // Ciudad: ${user.location.city}`}
+        location={`País: ${user.location.country} /// Ciudad: ${user.location.city}`}
       />
     </li>
   );
