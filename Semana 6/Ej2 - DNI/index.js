@@ -43,7 +43,6 @@ function validateDNI(dni) {
   // compruebo que tenga uno y un sólo "-"
   if (dniArray.length !== 2) {
     throw new Error("ERROR: el DNI tiene que llevar uno y un sólo '-'");
-    return;
   }
 
   const [numeros, letra] = dniArray;
