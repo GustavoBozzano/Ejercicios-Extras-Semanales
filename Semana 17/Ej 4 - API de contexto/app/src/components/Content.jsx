@@ -1,11 +1,10 @@
-import React from "react";
-import { useTheme } from "./ThemeContext";
-import "../App.css";
+import { useTheme } from '../context/ThemeContext';
+import '../App.css';
 
 const Content = () => {
   const { theme } = useTheme();
 
-  const contentClassName = theme === "dark" ? "dark" : "";
+  const contentClassName = theme === 'dark' ? 'dark' : '';
 
   return (
     <main className={`content ${contentClassName}`}>

@@ -1,8 +1,8 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import PostList from "./components/PostList";
-import PostForm from "./components/PostForm";
-import svg from "./svg-loaders/audio.svg";
+import './App.css';
+import { useState, useEffect } from 'react';
+import PostList from './components/PostList';
+import PostForm from './components/PostForm';
+import svg from './svg-loaders/audio.svg';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -13,15 +13,15 @@ function App() {
     const getData = async () => {
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
+          'https://jsonplaceholder.typicode.com/posts'
         );
         if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
+          throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
         setPosts(data);
       } catch (err) {
-        console.error("Error:", err);
+        console.error('Error:', err);
       } finally {
         // Después de cargar los posts, actualiza el estado de isLoadingPosts a false
         setIsLoadingPosts(false);

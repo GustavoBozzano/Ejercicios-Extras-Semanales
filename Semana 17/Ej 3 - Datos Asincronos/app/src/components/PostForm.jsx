@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
 const PostForm = ({ addPost }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [userId, setUserId] = useState("");
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [userId, setUserId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!title || !body || !userId) {
-      console.error("Por favor, completa todos los campos");
+      console.error('Por favor, completa todos los campos');
       return;
     }
 
@@ -25,11 +25,11 @@ const PostForm = ({ addPost }) => {
 
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts",
+        'https://jsonplaceholder.typicode.com/posts',
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(newPost),
         }
@@ -39,12 +39,12 @@ const PostForm = ({ addPost }) => {
         addPost(data);
 
         // Limpia los campos del formulario después de enviar
-        setTitle("");
-        setBody("");
-        setUserId("");
-        console.log("Nuevo post añadido con éxito:", data);
+        setTitle('');
+        setBody('');
+        setUserId('');
+        console.log('Nuevo post añadido con éxito:', data);
       } else {
-        console.error("Error al añadir el nuevo post");
+        console.error('Error al añadir el nuevo post');
       }
     } catch (error) {
       console.log(error);
@@ -84,7 +84,7 @@ const PostForm = ({ addPost }) => {
       />
 
       <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Enviando..." : "Crear post"}
+        {isSubmitting ? 'Enviando...' : 'Crear post'}
       </button>
     </form>
   );
