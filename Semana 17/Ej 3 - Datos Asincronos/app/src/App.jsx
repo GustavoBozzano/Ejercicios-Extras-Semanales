@@ -8,7 +8,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
 
-  // Carga aquí los posts con un useEffect...
   useEffect(() => {
     const getData = async () => {
       try {
