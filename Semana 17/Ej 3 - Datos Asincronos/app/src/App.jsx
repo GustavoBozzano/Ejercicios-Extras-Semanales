@@ -39,6 +39,7 @@ function App() {
     <>
       <h1>Ejercicio Posts</h1>
 
+      {/* Verifica si está cargando los posts */}
       {isLoadingPosts ? (
         // Muestra el indicador de carga mientras se están cargando los posts
         <img src={svg} alt="Cargando..." />
